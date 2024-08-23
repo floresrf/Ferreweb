@@ -1,0 +1,47 @@
+﻿@model List<userModel>
+@{
+    ViewData["Title"] = "Listar Usuarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3>Lista de Usuarios</h3>
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Numero de Celular</th>
+                        <th>Correo</th>
+                        @*<th>Acción</th>*@
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.ID</td>
+                            <td>@item.FirstName</td>
+                            <td>@item.LastName</td>
+                            <td>@item.PhoneNumber</td>
+                            <td>@item.Email</td>
+                            <td>
+                                <a asp-action="Editar" asp-controller="User"
+                                   class="btn btn-primary btn-sm mb-1" asp-route-ID="@item.ID">Editar</a>
+                                <a asp-action="Eliminar" asp-controller="User"
+                                   class="btn btn-danger btn-sm mb-1" asp-route-ID="@item.ID">Eliminar</a>
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

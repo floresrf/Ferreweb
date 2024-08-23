@@ -1,0 +1,38 @@
+﻿@model orderModel
+@{
+    ViewData["Title"] = "Ordenar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3>Ordenar</h3>
+    </div>
+
+    <div class="card-body">
+        <form asp-action="Guardar" asp-controller="Order" method="post">
+            <div class="mb-3">
+                <label class="form-label">ProductID:</label>
+                <input asp-for="ProductID" type="number" class="form-control" required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">UserID:</label>
+                <input asp-for="UserID" type="number" step="0.01" class="form-control" required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">EmployeeID:</label>
+                <input asp-for="EmployeeID" type="number" class="form-control" required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Dirección:</label>
+                <textarea asp-for="Direction" type="text" class="form-control" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Cantidad:</label>
+                <input asp-for="Quantity" type="number" class="form-control" required />
+            </div>
+            <button type="submit" class="btn btn-primary">Ordenar</button>
+            <a asp-action="Listar" asp-controller="Product" class="btn btn-warning">Volver a la lista</a>
+        </form>
+    </div>
+</div>

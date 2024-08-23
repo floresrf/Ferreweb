@@ -1,0 +1,63 @@
+﻿@model List<orderModel>
+@{
+	ViewData["Title"] = "Ordenes";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    @foreach (var item in Model)
+    {
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 text-start">
+                    <span class="fw-bold fst-italic text-start">OrderID: </span>@item.OrderID
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col-md-4 text-start">
+                    <span class="fw-bold fst-italic">ProductID: </span>@item.ProductID
+                </div>
+                <div class="col-md-4 text-start">
+                    <span class="fw-bold fst-italic">UserID: </span>@item.UserID
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-start">
+                    Producto: @item.Product
+                </div>
+                <div class="col-md-4 text-start">
+                    Nombre: @item.U_FirstName @item.U_LastName
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-start">
+                    Cantidad: @item.Quantity
+                </div>
+                <div class="col-md-4 text-start">
+                    Dirección: @item.Direction
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-start">
+                    $ @item.Total_Price
+                </div>
+                <div class="col-md-4 text-start">
+                    Tel/Cel: @item.U_Phone
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="fw-bold col-md-4 text-start">
+                    <span class="fw-bold fst-italic">EmployeeID: </span>@item.EmployeeID
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-start">
+                    Nombre Empleado: @item.E_FirstName @item.E_LastName
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    }

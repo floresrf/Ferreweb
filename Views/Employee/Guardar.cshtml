@@ -1,0 +1,55 @@
+﻿@model employeeModel
+@{
+    ViewData["Title"] = "Registro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3>Lista de Empleados</h3>
+    </div>
+
+    <div class="card-body">
+        <form asp-action="Guardar" asp-controller="Employee" method="post">
+
+            <div class="mb-3">
+                <label for="InputFName" class="form-label">Nombre*</label>
+                <input asp-for="FirstName" type="text" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+                <label for="InputLName" class="form-label">Apellido*</label>
+                <input asp-for="LastName" type="text" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+                <label for="InputDate" class="form-label">Fecha de Nacimiento*</label>
+                <input asp-for="BDate" type="date" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+                <label for="InputEmail" class="form-label">Correo Electronico*</label>
+                <input asp-for="Email" type="email" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+                <label for="InputPhone" class="form-label">Numero Celular*</label>
+                <input asp-for="PhoneNumber" type="tel" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+                <label for="InputDir" class="form-label">Dirección*</label>
+                <input asp-for="Direction" type="text" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+                <label for="InputSalary" class="form-label">Salario*</label>
+                <input asp-for="Salary" type="number" step="0.01" class="form-control" required />
+            </div>
+
+            <br>
+            <button type="submit" class="btn btn-primary">Registrarse</button>
+            <a asp-action="Listar" asp-controller="Employee" class="btn btn-warning">Volver a la lista</a>
+        </form>
+    </div>
+</div>

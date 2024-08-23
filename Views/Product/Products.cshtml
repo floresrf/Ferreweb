@@ -1,0 +1,31 @@
+﻿@model List<productModel>
+
+@{
+    ViewData["Title"] = "Productos";
+    var imagePath = Url.Content("~/images/");
+}
+
+<div class="row" id="list-row-top">
+    @foreach (var item in Model)
+    {
+        <div class="col-12 col-sm-6 col-md-3">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h5>@item.Name</h5>
+                </div>
+                <img src="@($"{imagePath}{item.Picture}")" class="card-img-top" alt="@item.Name" style="height: auto; max-height: 200px;">
+                <div class="card-body">
+                    <p class="card-title">ID: @item.ID</p>
+                    <p class="card-text">
+                        @item.Description
+                    </p>
+                    <p>$ @item.Price</p>
+                    <a asp-action="Listar" asp-controller="Product"  class="btn btn-primary" aria-label="Comprar">
+                        <img src="@($"{imagePath}carro.png")" height="20px" width="20px" alt="carro" />
+                        Ordenar
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

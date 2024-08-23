@@ -1,0 +1,28 @@
+body{
+    
+    background-color: antiquewhite;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+body nav{
+    
+    background-color: antiquewhite;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+.card{
+    margin: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.card-img-margin{
+    margin-top: 15px;
+    margin-right: 15px;
+    margin-left: 15px;
+    border-radius: 5px;
+}
+#list-row-top{
+    margin-top: 15px;
+    margin-left: -15px; 
+    margin-right: -15px;
+}

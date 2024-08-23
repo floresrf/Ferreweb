@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Ferreweb</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Ferreweb.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Ferreweb</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" id="Menú" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Productos</a>
+                            <div class="dropdown-menu" aria-labelledy="navbarDropdownMenuLink">
+                                <a class="dropdown-item" asp-area="" asp-controller="Product" asp-action="Products">Productos</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Order" asp-action="Guardar">Hacer Pedido</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Order" asp-action="Listar">Pedidos</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Product" asp-action="Listar">Lista</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Product" asp-action="Guardar">Nuevo</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" id="Menú" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuarios</a>
+                            <div class="dropdown-menu" aria-labelledy="navbarDropdownMenuLink">
+                                <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#InicioSesion">Iniciar Sesion</button>
+                                <a class="dropdown-item" asp-area="" asp-controller="User" asp-action="Guardar">Crear Cuenta</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="User" asp-action="Listar">Usuarios</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" id="Menú" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Empleados</a>
+                            <div class="dropdown-menu" aria-labelledy="navbarDropdownMenuLink">
+                                <a class="dropdown-item" asp-area="" asp-controller="Employee" asp-action="Listar">Listar</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Employee" asp-action="Guardar">Nuevo</a>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Modal Inicio Sesion -->
+    <div class="modal fade" id="InicioSesion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="InputEmail" class="form-label">Correo Electronico</label>
+                            <input type="email" class="form-control" id="InputEmail"
+                                aria-describedby="emailHelp" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="InputPassword" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="InputPassword" required>
+                        </div>
+                        <br>
+
+                        <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
+                        <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalregister">Crear cuenta</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - Ferreweb - <a asp-area="" asp-controller="Home" asp-action="Privacy">Aviso de Privacidad</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
